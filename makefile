@@ -5,10 +5,6 @@ run: genpass
 .PHONY: build
 build: genpass
 
-genpass: genpass.c genpass.h
-	gcc -Wall -Werror -g -o genpass genpass.c
-
-
 .PHONY: install
 install: genpass
 	cp genpass /usr/bin/
@@ -16,3 +12,8 @@ install: genpass
 .PHONY: remove
 remove:
 	rm /usr/bin/genpass
+
+
+# non phony
+genpass: genpass.c genpass.h
+	gcc -Wall -Werror -g -o genpass genpass.c
