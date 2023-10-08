@@ -7,12 +7,15 @@ char* help = "Usage: %s -hlusn <length>\n"
               "  -u: Exclude uppercase\n"
               "  -s: Exclude symbols\n"
               "  -n: Exclude numbers\n"
+              "  -b: Exclude bash string reserved characters\n"
               "  <length>: length of password (default: 8)\n";
 
 #define LOWERCASE "abcdefghijklmnopqrstuvwxyz"
 #define UPPERCASE "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define NUMBERS "0123456789"
-#define SYMBOLS "!@#%^&*()_+-=[]{};':,./<>?`~"
+#define SYMBOLS "!@#%^&*()_+-=[]{};:,./<>?~"
+#define BASH "'\"`$"
+#define ALLCHARS LOWERCASE UPPERCASE NUMBERS SYMBOLS BASH
 
 char get_random_char(char *charset);
 

@@ -16,9 +16,10 @@ int main(int argc, char **argv) {
   bool uppercase = true;
   bool numbers = true;
   bool symbols = true;
+  bool bash = true;
 
   char c = 0;
-  while ((c = getopt (argc, argv, "lusnh")) != -1) {
+  while ((c = getopt (argc, argv, "lusnhb")) != -1) {
     switch (c) {
     case 'l':
         lowercase = false;
@@ -31,6 +32,9 @@ int main(int argc, char **argv) {
         break;
     case 'n':
         numbers = false;
+        break;
+    case 'b':
+        bash = false;
         break;
     case 'h':
     case '?':
@@ -49,8 +53,7 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  char charset[strlen(LOWERCASE) + strlen(UPPERCASE) + strlen(NUMBERS) +
-               strlen(SYMBOLS) + 1] = {};
+  char charset[strlen(ALLCHARS) + 1] = {};
 
   if (lowercase) {
     strcat(charset, LOWERCASE);
@@ -63,6 +66,9 @@ int main(int argc, char **argv) {
   }
   if (symbols) {
     strcat(charset, SYMBOLS);
+  }
+  if (bash){
+    strcat(charset, BASH);
   }
 
   char password[len + 1];
