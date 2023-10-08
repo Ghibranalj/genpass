@@ -29,6 +29,7 @@ int main(int argc, char **argv) {
         break;
     case 's':
         symbols = false;
+        bash = false;
         break;
     case 'n':
         numbers = false;

@@ -13,8 +13,8 @@ char* help = "Usage: %s -hlusn <length>\n"
 #define LOWERCASE "abcdefghijklmnopqrstuvwxyz"
 #define UPPERCASE "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define NUMBERS "0123456789"
-#define SYMBOLS "!@#%^&*()_+-=[]{};:,./<>?~"
-#define BASH "'\"`$"
+#define SYMBOLS "!#%^&*()_+-=[]{};:,./<>?~"
+#define BASH "'\"`$@"
 #define ALLCHARS LOWERCASE UPPERCASE NUMBERS SYMBOLS BASH
 
 char get_random_char(char *charset);
