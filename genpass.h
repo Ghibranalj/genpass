@@ -1,3 +1,5 @@
+#ifndef GENPASS_H
+#define GENPASS_H
 
 char* help = "Usage: %s -hlusn <length>\n"
               "  -h: Show help\n"
@@ -10,6 +12,8 @@ char* help = "Usage: %s -hlusn <length>\n"
 #define LOWERCASE "abcdefghijklmnopqrstuvwxyz"
 #define UPPERCASE "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define NUMBERS "0123456789"
-#define SYMBOLS "!@#$%^&*()_+-=[]{};':\",./<>?`~"
+#define SYMBOLS "!@#%^&*()_+-=[]{};':,./<>?`~"
 
 char get_random_char(char *charset);
+
+#endif // GENPASS_H
