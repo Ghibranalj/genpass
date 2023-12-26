@@ -75,18 +75,17 @@ int main(int argc, char **argv) {
   char password[len + 1];
   memset(password, 0, len + 1);
 
+  int charset_len = strlen(charset);
   for (int i = 0; i < len; i++)
-    password[i] = get_random_char(charset);
+    password[i] = get_random_char(charset, len);
 
   password[len] = '\0';
 
   puts(password);
 }
 
-char get_random_char(char *charset) {
-  int len = strlen(charset);
-
+char get_random_char(char *charset, int length) {
   int r = rand();
-  int index = r % len;
+  int index = r % length;
   return charset[index];
 }

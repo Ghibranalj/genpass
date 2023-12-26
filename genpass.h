@@ -17,6 +17,6 @@ char* help = "Usage: %s -hlusn <length>\n"
 #define BASH "'\"`$@"
 #define ALLCHARS LOWERCASE UPPERCASE NUMBERS SYMBOLS BASH
 
-char get_random_char(char *charset);
+char get_random_char(char *charset, int length);
 
 #endif // GENPASS_H
