@@ -1,1 +1,6 @@
 /genpass
+/vendor/
+/clipboard.a
+/clipboard.o
+/clip.o
+/compile_commands.json

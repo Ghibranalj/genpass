@@ -6,8 +6,8 @@
 #include <time.h>
 #include <unistd.h>
 
-#include  "genpass.h"
-
+#include "clipboard.h"
+#include "genpass.h"
 
 int main(int argc, char **argv) {
   srand(time(NULL));
@@ -17,30 +17,34 @@ int main(int argc, char **argv) {
   bool numbers = true;
   bool symbols = true;
   bool bash = true;
+  bool copy = false;
 
   char c = 0;
-  while ((c = getopt (argc, argv, "lusnhb")) != -1) {
+  while ((c = getopt(argc, argv, "lusnhbc")) != -1) {
     switch (c) {
     case 'l':
-        lowercase = false;
-        break;
+      lowercase = false;
+      break;
     case 'u':
-        uppercase = false;
-        break;
+      uppercase = false;
+      break;
     case 's':
-        symbols = false;
-        bash = false;
-        break;
+      symbols = false;
+      bash = false;
+      break;
     case 'n':
-        numbers = false;
-        break;
+      numbers = false;
+      break;
     case 'b':
-        bash = false;
-        break;
+      bash = false;
+      break;
+    case 'c':
+      copy = true;
+      break;
     case 'h':
     case '?':
-        fprintf(stderr,help, argv[0]);
-        return -1;
+      fprintf(stderr, help, argv[0]);
+      return -1;
     }
   }
 
@@ -68,7 +72,7 @@ int main(int argc, char **argv) {
   if (symbols) {
     strcat(charset, SYMBOLS);
   }
-  if (bash){
+  if (bash) {
     strcat(charset, BASH);
   }
 
@@ -79,6 +83,10 @@ int main(int argc, char **argv) {
     password[i] = get_random_char(charset);
 
   password[len] = '\0';
+
+  if (copy) {
+    send_to_clipboard(password);
+  }
 
   puts(password);
 }
